@@ -7,4 +7,4 @@ before_script:
   - docker run --rm -v $(pwd):/app composer install
 script:
   - docker build -t user-transactions .
-  - docker run --rm -v $(pwd):/app user-tarnsactions vendor/bin/phpunit
+  - docker run --rm -v $(pwd):/app user-transactions vendor/bin/phpunit

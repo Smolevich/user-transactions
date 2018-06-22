@@ -10,6 +10,7 @@
     - [Accept](#accept)
     - [Block](#block)
  - [Workers](#workers)
+ - [Examples](#examples)
 
 ## Requirenments
     - Laravel framework
@@ -149,3 +150,15 @@ For example,  run command in container `php artisan block:push {operation_id}`
 ## Workers
 Count of workes set directive `numprocs` in file `deployment/worker.conf` and rebuild docker image
 
+## Examples
+1) For example user with id 1 has balance 50000
+2) Enroll sum 100 to user with id 1
+    `php artisan enrollment:push 1 100 --pre-blocked`
+In output you can see job id (operation_id in redis storage)
+3) After worker processed job, job has be saved in redis storage
+4) Check in redis storage created transaction
+`redis-cli GET <prefix>:user:operaion:<operation_id>`
+where `operation_id` - string from output on step 2
+5) Accept operation `php artisan accept:push <operation_id>`
+6) If job was successfully processed check balance of user in redis
+`redis-cli GET user:1`
