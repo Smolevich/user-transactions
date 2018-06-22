@@ -23,6 +23,8 @@ ADD ./deployment/worker.conf /etc/supervisor.d/worker.conf
 
 COPY . /app
 
+RUN mkdir -p /var/log/supervisord
+
 ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c",  "/etc/supervisord.conf"]
 
 WORKDIR /app
