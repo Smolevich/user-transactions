@@ -26,6 +26,8 @@ class WriteOffOperation extends Model {
 
         if ($sum > 0 && $sum < $balance) {
             $this->setAttribute('new_balance', $balance - (int)$sum);
+            $extraData['sum'] = - $sum;
+            $this->setAttribute('extra_data', $extraData);
         }
     }
 }

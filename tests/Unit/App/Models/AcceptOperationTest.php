@@ -13,7 +13,7 @@ class AcceptOperationTest extends TestCase{
             'operation_id' => md5('operation_id'),
             'is_blocked' => true,
             'extra_data' => [
-                'sum' => 30
+                'sum' => - 30
             ]
         ];
         $currentBalance = 200;
