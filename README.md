@@ -147,5 +147,5 @@ For example,  run command in container `php artisan accept:push {operation_id}`
 For example,  run command in container `php artisan block:push {operation_id}`
 
 ## Workers
-Count of workes set in file `deployment/worker.conf` and rebuild docker image
+Count of workes set directive `numprocs` in file `deployment/worker.conf` and rebuild docker image
 
