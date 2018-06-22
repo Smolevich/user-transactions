@@ -1,0 +1,10 @@
+before_install:
+  - printenv
+services:
+  - docker
+before_script:
+  - docker pull composer
+  - docker run --rm -v $(pwd):/app composer install
+script:
+  - docker build -t user-transactions .
+  - docker run --rm -v $(pwd):/app user-tarnsactions vendor/bin/phpunit
